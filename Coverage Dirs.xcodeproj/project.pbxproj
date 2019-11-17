@@ -92,7 +92,6 @@
 		6F16760A2381C56300DCC8E6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6F1676102381D40C00DCC8E6 /* XCCov */,
 				6F16760B2381C56900DCC8E6 /* Entities */,
 			);
 			path = Model;
@@ -101,8 +100,11 @@
 		6F16760B2381C56900DCC8E6 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				6F1676102381D40C00DCC8E6 /* XCCov */,
 				6F16760C2381C57C00DCC8E6 /* CoverageData.swift */,
+				6F16761D2381D8A100DCC8E6 /* CoverageTarget.swift */,
 				6F16760E2381C5BA00DCC8E6 /* CoverageFile.swift */,
+				6F16761F2381E32F00DCC8E6 /* CoverageDirectory.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
