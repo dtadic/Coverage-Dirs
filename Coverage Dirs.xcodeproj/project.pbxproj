@@ -14,6 +14,9 @@
 		6F1676182381D45E00DCC8E6 /* XCCovFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1676132381D45E00DCC8E6 /* XCCovFile.swift */; };
 		6F1676192381D45E00DCC8E6 /* XCCovOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1676142381D45E00DCC8E6 /* XCCovOutput.swift */; };
 		6F16761A2381D45E00DCC8E6 /* XCCovTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1676152381D45E00DCC8E6 /* XCCovTarget.swift */; };
+		6F16761C2381D79D00DCC8E6 /* XCCovParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16761B2381D79D00DCC8E6 /* XCCovParser.swift */; };
+		6F16761E2381D8A100DCC8E6 /* CoverageTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16761D2381D8A100DCC8E6 /* CoverageTarget.swift */; };
+		6F1676202381E32F00DCC8E6 /* CoverageDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16761F2381E32F00DCC8E6 /* CoverageDirectory.swift */; };
 		6F5C5EB6238198A800C68DEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5C5EB5238198A800C68DEA /* AppDelegate.swift */; };
 		6F5C5EB8238198A800C68DEA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5C5EB7238198A800C68DEA /* ContentView.swift */; };
 		6F5C5EBA238198AA00C68DEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F5C5EB9238198AA00C68DEA /* Assets.xcassets */; };
@@ -48,6 +51,9 @@
 		6F1676132381D45E00DCC8E6 /* XCCovFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCCovFile.swift; sourceTree = "<group>"; };
 		6F1676142381D45E00DCC8E6 /* XCCovOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCCovOutput.swift; sourceTree = "<group>"; };
 		6F1676152381D45E00DCC8E6 /* XCCovTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCCovTarget.swift; sourceTree = "<group>"; };
+		6F16761B2381D79D00DCC8E6 /* XCCovParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCCovParser.swift; sourceTree = "<group>"; };
+		6F16761D2381D8A100DCC8E6 /* CoverageTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverageTarget.swift; sourceTree = "<group>"; };
+		6F16761F2381E32F00DCC8E6 /* CoverageDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverageDirectory.swift; sourceTree = "<group>"; };
 		6F5C5EB2238198A800C68DEA /* Coverage Dirs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coverage Dirs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F5C5EB5238198A800C68DEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F5C5EB7238198A800C68DEA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -93,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				6F16760B2381C56900DCC8E6 /* Entities */,
+				6F16761B2381D79D00DCC8E6 /* XCCovParser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -317,11 +324,14 @@
 				6F5C5EB8238198A800C68DEA /* ContentView.swift in Sources */,
 				6F1676172381D45E00DCC8E6 /* XCCovFunction.swift in Sources */,
 				6F16760F2381C5BA00DCC8E6 /* CoverageFile.swift in Sources */,
+				6F16761E2381D8A100DCC8E6 /* CoverageTarget.swift in Sources */,
+				6F16761C2381D79D00DCC8E6 /* XCCovParser.swift in Sources */,
 				6F16761A2381D45E00DCC8E6 /* XCCovTarget.swift in Sources */,
 				6F1676182381D45E00DCC8E6 /* XCCovFile.swift in Sources */,
 				6F1676162381D45E00DCC8E6 /* XCCovError.swift in Sources */,
 				6F5C5EB6238198A800C68DEA /* AppDelegate.swift in Sources */,
 				6F16760D2381C57C00DCC8E6 /* CoverageData.swift in Sources */,
+				6F1676202381E32F00DCC8E6 /* CoverageDirectory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

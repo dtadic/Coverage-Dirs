@@ -1,5 +1,5 @@
 //
-//  CoverageFile.swift
+//  CoverageTarget.swift
 //  Coverage Dirs
 //
 //  Created by Dušan Tadić on 17.11.19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CoverageFile {
+struct CoverageTarget {
+    var rootDirectory: CoverageDirectory
     var name: String
-    var coverage: CoverageData
 }
