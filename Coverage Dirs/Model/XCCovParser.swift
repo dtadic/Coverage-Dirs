@@ -31,10 +31,8 @@ class XCCovParser {
     }
 
     private static func parseTarget(_ target: XCCovTarget) -> CoverageTarget {
-        var coverageTarget = CoverageTarget(rootDirectory: buildTree(from: target.files),
+        return CoverageTarget(rootDirectory: buildTree(from: target.files),
                                             name: target.name)
-
-        return coverageTarget
     }
 
     private static func buildTree(from files: [XCCovFile]) -> CoverageDirectory {
@@ -85,7 +83,6 @@ class XCCovParser {
             let index = trunk.children.firstIndex(where: {$0.name == node})!
             attach(file, path: others, to: &trunk.children[index])
         }
-
 
     }
 

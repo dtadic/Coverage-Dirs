@@ -1,4 +1,3 @@
-
 import Foundation
 
 struct XCCovFile: Codable {
@@ -10,11 +9,11 @@ struct XCCovFile: Codable {
     var executableLines: Int
 
     enum CodingKeys: String, CodingKey {
-        case coveredLines = "coveredLines"
-        case lineCoverage = "lineCoverage"
-        case path = "path"
-        case functions = "functions"
-        case name = "name"
-        case executableLines = "executableLines"
+        case coveredLines
+        case lineCoverage
+        case path
+        case functions
+        case name
+        case executableLines
     }
 }

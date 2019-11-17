@@ -1,4 +1,3 @@
-
 import Foundation
 
 struct XCCovError: Codable {
@@ -7,8 +6,8 @@ struct XCCovError: Codable {
     var domain: String
 
     enum CodingKeys: String, CodingKey {
-        case code = "code"
-        case localizedDescription = "localizedDescription"
-        case domain = "domain"
+        case code
+        case localizedDescription
+        case domain
     }
 }

@@ -1,4 +1,3 @@
-
 import Foundation
 
 struct XCCovTarget: Codable {
@@ -10,11 +9,11 @@ struct XCCovTarget: Codable {
     var buildProductPath: String
 
     enum CodingKeys: String, CodingKey {
-        case coveredLines = "coveredLines"
-        case lineCoverage = "lineCoverage"
-        case files = "files"
-        case name = "name"
-        case executableLines = "executableLines"
-        case buildProductPath = "buildProductPath"
+        case coveredLines
+        case lineCoverage
+        case files
+        case name
+        case executableLines
+        case buildProductPath
     }
 }
