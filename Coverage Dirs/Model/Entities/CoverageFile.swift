@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CoverageFile {
+struct CoverageFile: Equatable, Hashable {
     var name: String
     var coverage: CoverageData
 }

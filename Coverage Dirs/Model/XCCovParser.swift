@@ -56,6 +56,10 @@ class XCCovParser {
             attach(coverageFile, path: file.path, to: &root)
         }
 
+        while root.children.count == 1 && root.files.isEmpty {
+            root = root.children.first!
+        }
+
         return root
     }
 

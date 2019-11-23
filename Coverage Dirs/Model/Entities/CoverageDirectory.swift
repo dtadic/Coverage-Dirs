@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CoverageDirectory {
+struct CoverageDirectory: Equatable, Hashable {
     var name: String
     var files: [CoverageFile]
     var children: [CoverageDirectory]

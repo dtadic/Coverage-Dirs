@@ -8,10 +8,13 @@
 
 import Foundation
 
-struct CoverageData {
+struct CoverageData: Equatable, Hashable {
     var executableLines: Int
     var coveredLines: Int
     var coverage: Double {
+        if executableLines == 0 {
+            return 0
+        }
         return Double(coveredLines) / Double(executableLines)
     }
 }

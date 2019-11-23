@@ -16,7 +16,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
+
+        let jsonURL = Bundle.main.url(forResource: "test", withExtension: "json")!
+        let jsonData = (try? Data(contentsOf: jsonURL))!
+        let jsonString = String(data: jsonData, encoding: .utf8)
+        let data = try? XCCovParser.parse(jsonString: jsonString!)
+
+        var contentView = MainView(targets: data!, selectedTarget: nil)
 
         // Create the window and set the content view. 
         window = NSWindow(

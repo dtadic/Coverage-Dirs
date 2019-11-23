@@ -8,7 +8,11 @@
 
 import Foundation
 
-struct CoverageTarget {
+struct CoverageTarget: Identifiable, Equatable, Hashable {
+    var id: String {
+        return name
+    }
+
     var rootDirectory: CoverageDirectory
     var name: String
 }
