@@ -13,7 +13,7 @@ struct SidebarItemView: View {
     var image: Image
 
     var body: some View {
-        ZStack() {
+        ZStack {
             HStack(alignment: .bottom) {
                 image
                     .resizable()

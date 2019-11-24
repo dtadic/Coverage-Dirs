@@ -44,7 +44,6 @@ struct MainView: View {
                                maxWidth: .infinity,
                                maxHeight: .infinity,
                                alignment: .topLeading)
-                        .padding()
                 }
             } else {
                 Text("No target selected")

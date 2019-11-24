@@ -16,6 +16,7 @@ struct DirectoryView: View {
         VStack(alignment: .leading) {
             HStack(alignment: .center) {
                 Image("play")
+                    .antialiased(true)
                     .resizable()
                     .scaledToFit()
                     .frame(height: 7)
@@ -25,6 +26,8 @@ struct DirectoryView: View {
                 PercentageView(percentage: directory.coverage.coverage)
                 .frame(width: 150,
                        height: 7)
+                Text("\(Int(directory.coverage.coverage * 100))%")
+                    .frame(width: 35, alignment: .trailing)
             }
                 .onTapGesture {
                     self.isExpanded.toggle()
@@ -43,6 +46,8 @@ struct DirectoryView: View {
                         PercentageView(percentage: file.coverage.coverage)
                         .frame(width: 150,
                                height: 7)
+                        Text("\(Int(file.coverage.coverage * 100))%")
+                            .frame(width: 35, alignment: .trailing)
                     }
                 }
                 .padding(.leading, 20)

@@ -22,7 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let jsonString = String(data: jsonData, encoding: .utf8)
         let data = try? XCCovParser.parse(jsonString: jsonString!)
 
-        var contentView = MainView(targets: data!, selectedTarget: nil)
+        let contentView = MainView(targets: data!, selectedTarget: nil)
 
         // Create the window and set the content view. 
         window = NSWindow(
@@ -32,10 +32,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.center()
         window.setFrameAutosaveName("Main Window")
         window.titleVisibility = .hidden
-        window.toolbar = NSToolbar(identifier: "toolbar")
-        window.toolbar?.insertItem(withItemIdentifier: .toggleSidebar, at: 0)
-        window.toolbar?.insertItem(withItemIdentifier: .flexibleSpace, at: 1)
-        window.toolbar?.insertItem(withItemIdentifier: .cloudSharing, at: 2)
         window.contentView = NSHostingView(rootView: contentView)
         window.makeKeyAndOrderFront(nil)
     }
