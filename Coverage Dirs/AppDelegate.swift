@@ -15,25 +15,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var window: NSWindow!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Create the SwiftUI view that provides the window contents.
+        
+        let windowController = NSStoryboard(name: "Views", bundle: nil)
+            .instantiateInitialController() as? NSWindowController
 
-        let jsonURL = Bundle.main.url(forResource: "test", withExtension: "json")!
-        let jsonData = (try? Data(contentsOf: jsonURL))!
-        let jsonString = String(data: jsonData, encoding: .utf8)
-        let data = try? XCCovParser.parse(jsonString: jsonString!)
-
-        let contentView = MainView(targets: data!, selectedTarget: nil)
-
-        // Create the window and set the content view. 
-        window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
-            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView, .unifiedTitleAndToolbar],
-            backing: .buffered, defer: false)
-        window.center()
-        window.setFrameAutosaveName("Main Window")
-        window.titleVisibility = .hidden
-        window.contentView = NSHostingView(rootView: contentView)
-        window.makeKeyAndOrderFront(nil)
+        windowController?.showWindow(self)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

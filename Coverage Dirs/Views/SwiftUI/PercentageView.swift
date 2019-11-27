@@ -14,8 +14,8 @@ struct PercentageView: View {
     var body: some View {
         GeometryReader { metrics in
             ZStack(alignment: .leading) {
-                LinearGradient(gradient: Gradient(colors: [Color.accentColor.opacity(0.95),
-                                                           Color.accentColor.opacity(0.6)]),
+                LinearGradient(gradient: Gradient(colors: [Color.green.opacity(0.95),
+                                                           Color.green.opacity(0.6)]),
                                startPoint: .topLeading,
                                endPoint: .bottomTrailing)
                     .foregroundColor(.accentColor)

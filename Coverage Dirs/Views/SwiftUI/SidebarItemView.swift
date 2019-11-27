@@ -25,8 +25,7 @@ struct SidebarItemView: View {
                 Spacer()
             }
         }
-        .padding(.horizontal, 12)
-        .frame(height: 40)
+        .padding(.leading, 12)
     }
 }
 
@@ -35,4 +34,20 @@ struct CoverageDirectoryView_Previews: PreviewProvider {
         SidebarItemView(text: "errors", image: Image("alert_circle"))
         .frame(width: 300)
     }
+}
+
+class NSSidebarItemView: NSHostingView<SidebarItemView> {
+    init(text: String, image: NSImage) {
+        let root = SidebarItemView(text: text, image: Image(nsImage: image))
+        super.init(rootView: root)
+    }
+
+    @objc required dynamic init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    required init(rootView: SidebarItemView) {
+        super.init(rootView: rootView)
+    }
+
 }

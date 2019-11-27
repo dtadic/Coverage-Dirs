@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6F0E9C812389CE3300AC2288 /* DirectoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0E9C802389CE3300AC2288 /* DirectoryView.swift */; };
 		6F0E9C832389D45300AC2288 /* PercentageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0E9C822389D45300AC2288 /* PercentageView.swift */; };
 		6F16760D2381C57C00DCC8E6 /* CoverageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16760C2381C57C00DCC8E6 /* CoverageData.swift */; };
 		6F16760F2381C5BA00DCC8E6 /* CoverageFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16760E2381C5BA00DCC8E6 /* CoverageFile.swift */; };
@@ -20,16 +19,18 @@
 		6F16761E2381D8A100DCC8E6 /* CoverageTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16761D2381D8A100DCC8E6 /* CoverageTarget.swift */; };
 		6F1676202381E32F00DCC8E6 /* CoverageDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16761F2381E32F00DCC8E6 /* CoverageDirectory.swift */; };
 		6F167627238468C900DCC8E6 /* SidebarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F167626238468C900DCC8E6 /* SidebarItemView.swift */; };
-		6F1676292384701A00DCC8E6 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1676282384701A00DCC8E6 /* VisualEffectView.swift */; };
 		6F16762B2384755300DCC8E6 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F16762A2384755300DCC8E6 /* test.json */; };
 		6F52097C238940D6001D9FC5 /* CoverageTargetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52097B238940D6001D9FC5 /* CoverageTargetView.swift */; };
 		6F5C5EB6238198A800C68DEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5C5EB5238198A800C68DEA /* AppDelegate.swift */; };
-		6F5C5EB8238198A800C68DEA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5C5EB7238198A800C68DEA /* MainView.swift */; };
 		6F5C5EBA238198AA00C68DEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F5C5EB9238198AA00C68DEA /* Assets.xcassets */; };
 		6F5C5EBD238198AA00C68DEA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F5C5EBC238198AA00C68DEA /* Preview Assets.xcassets */; };
 		6F5C5EC0238198AA00C68DEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F5C5EBE238198AA00C68DEA /* Main.storyboard */; };
 		6F5C5ECC238198AA00C68DEA /* Coverage_DirsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5C5ECB238198AA00C68DEA /* Coverage_DirsTests.swift */; };
 		6F5C5ED7238198AA00C68DEA /* Coverage_DirsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5C5ED6238198AA00C68DEA /* Coverage_DirsUITests.swift */; };
+		6FC82E23238F15C600816435 /* CoverageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC82E1F238F15C600816435 /* CoverageViewController.swift */; };
+		6FC82E24238F15C600816435 /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC82E20238F15C600816435 /* MainSplitViewController.swift */; };
+		6FC82E25238F15C600816435 /* SidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC82E21238F15C600816435 /* SidebarViewController.swift */; };
+		6FC82E26238F15C600816435 /* Views.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FC82E22238F15C600816435 /* Views.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +51,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6F0E9C802389CE3300AC2288 /* DirectoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryView.swift; sourceTree = "<group>"; };
 		6F0E9C822389D45300AC2288 /* PercentageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentageView.swift; sourceTree = "<group>"; };
 		6F16760C2381C57C00DCC8E6 /* CoverageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverageData.swift; sourceTree = "<group>"; };
 		6F16760E2381C5BA00DCC8E6 /* CoverageFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverageFile.swift; sourceTree = "<group>"; };
@@ -63,12 +63,10 @@
 		6F16761D2381D8A100DCC8E6 /* CoverageTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverageTarget.swift; sourceTree = "<group>"; };
 		6F16761F2381E32F00DCC8E6 /* CoverageDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverageDirectory.swift; sourceTree = "<group>"; };
 		6F167626238468C900DCC8E6 /* SidebarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarItemView.swift; sourceTree = "<group>"; };
-		6F1676282384701A00DCC8E6 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
 		6F16762A2384755300DCC8E6 /* test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		6F52097B238940D6001D9FC5 /* CoverageTargetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverageTargetView.swift; sourceTree = "<group>"; };
 		6F5C5EB2238198A800C68DEA /* Coverage Dirs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coverage Dirs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F5C5EB5238198A800C68DEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6F5C5EB7238198A800C68DEA /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		6F5C5EB9238198AA00C68DEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F5C5EBC238198AA00C68DEA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6F5C5EBF238198AA00C68DEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -80,6 +78,10 @@
 		6F5C5ED2238198AA00C68DEA /* Coverage DirsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Coverage DirsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F5C5ED6238198AA00C68DEA /* Coverage_DirsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coverage_DirsUITests.swift; sourceTree = "<group>"; };
 		6F5C5ED8238198AA00C68DEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6FC82E1F238F15C600816435 /* CoverageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverageViewController.swift; sourceTree = "<group>"; };
+		6FC82E20238F15C600816435 /* MainSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
+		6FC82E21238F15C600816435 /* SidebarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarViewController.swift; sourceTree = "<group>"; };
+		6FC82E22238F15C600816435 /* Views.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Views.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,17 +150,13 @@
 			path = Test_File;
 			sourceTree = "<group>";
 		};
-		6F1676252384683E00DCC8E6 /*  Views */ = {
+		6F1676252384683E00DCC8E6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6F5C5EB7238198A800C68DEA /* MainView.swift */,
-				6F167626238468C900DCC8E6 /* SidebarItemView.swift */,
-				6F1676282384701A00DCC8E6 /* VisualEffectView.swift */,
-				6F52097B238940D6001D9FC5 /* CoverageTargetView.swift */,
-				6F0E9C802389CE3300AC2288 /* DirectoryView.swift */,
-				6F0E9C822389D45300AC2288 /* PercentageView.swift */,
+				6FC82E1E238F151A00816435 /* Cocoa */,
+				6FC82E1D238F150E00816435 /* SwiftUI */,
 			);
-			path = " Views";
+			path = Views;
 			sourceTree = "<group>";
 		};
 		6F5C5EA9238198A700C68DEA = {
@@ -186,7 +184,7 @@
 			children = (
 				6F16762223832BB600DCC8E6 /* Test_File */,
 				6F16760A2381C56300DCC8E6 /* Model */,
-				6F1676252384683E00DCC8E6 /*  Views */,
+				6F1676252384683E00DCC8E6 /* Views */,
 				6F5C5EB5238198A800C68DEA /* AppDelegate.swift */,
 				6F5C5EB9238198AA00C68DEA /* Assets.xcassets */,
 				6F5C5EBE238198AA00C68DEA /* Main.storyboard */,
@@ -221,6 +219,27 @@
 				6F5C5ED8238198AA00C68DEA /* Info.plist */,
 			);
 			path = "Coverage DirsUITests";
+			sourceTree = "<group>";
+		};
+		6FC82E1D238F150E00816435 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				6F167626238468C900DCC8E6 /* SidebarItemView.swift */,
+				6F52097B238940D6001D9FC5 /* CoverageTargetView.swift */,
+				6F0E9C822389D45300AC2288 /* PercentageView.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		6FC82E1E238F151A00816435 /* Cocoa */ = {
+			isa = PBXGroup;
+			children = (
+				6FC82E1F238F15C600816435 /* CoverageViewController.swift */,
+				6FC82E20238F15C600816435 /* MainSplitViewController.swift */,
+				6FC82E21238F15C600816435 /* SidebarViewController.swift */,
+				6FC82E22238F15C600816435 /* Views.storyboard */,
+			);
+			path = Cocoa;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,6 +350,7 @@
 				6F5C5EC0238198AA00C68DEA /* Main.storyboard in Resources */,
 				6F5C5EBD238198AA00C68DEA /* Preview Assets.xcassets in Resources */,
 				6F16762B2384755300DCC8E6 /* test.json in Resources */,
+				6FC82E26238F15C600816435 /* Views.storyboard in Resources */,
 				6F5C5EBA238198AA00C68DEA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,21 +397,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F1676192381D45E00DCC8E6 /* XCCovOutput.swift in Sources */,
-				6F5C5EB8238198A800C68DEA /* MainView.swift in Sources */,
 				6F1676172381D45E00DCC8E6 /* XCCovFunction.swift in Sources */,
 				6F16760F2381C5BA00DCC8E6 /* CoverageFile.swift in Sources */,
 				6F16761E2381D8A100DCC8E6 /* CoverageTarget.swift in Sources */,
 				6F16761C2381D79D00DCC8E6 /* XCCovParser.swift in Sources */,
+				6FC82E23238F15C600816435 /* CoverageViewController.swift in Sources */,
 				6F0E9C832389D45300AC2288 /* PercentageView.swift in Sources */,
 				6F167627238468C900DCC8E6 /* SidebarItemView.swift in Sources */,
+				6FC82E24238F15C600816435 /* MainSplitViewController.swift in Sources */,
+				6FC82E25238F15C600816435 /* SidebarViewController.swift in Sources */,
 				6F16761A2381D45E00DCC8E6 /* XCCovTarget.swift in Sources */,
 				6F1676182381D45E00DCC8E6 /* XCCovFile.swift in Sources */,
-				6F1676292384701A00DCC8E6 /* VisualEffectView.swift in Sources */,
 				6F1676162381D45E00DCC8E6 /* XCCovError.swift in Sources */,
 				6F5C5EB6238198A800C68DEA /* AppDelegate.swift in Sources */,
 				6F16760D2381C57C00DCC8E6 /* CoverageData.swift in Sources */,
 				6F1676202381E32F00DCC8E6 /* CoverageDirectory.swift in Sources */,
-				6F0E9C812389CE3300AC2288 /* DirectoryView.swift in Sources */,
 				6F52097C238940D6001D9FC5 /* CoverageTargetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
