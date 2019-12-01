@@ -34,11 +34,20 @@ class MainSplitViewController: NSSplitViewController {
         if let coverageVC = self.children.last as? CoverageViewController {
             self.coverageVC = coverageVC
         }
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(showInputJS),
+                                               name: .inputJSONSelected,
+                                               object: nil)
     }
 
     override func viewDidAppear() {
         super.viewDidAppear()
 
+        self.showInputJS()
+    }
+
+    @objc private func showInputJS() {
         let pasteVC = StoryboardScene.Views.jsonPaste.instantiate()
 
         pasteVC.delegate = self

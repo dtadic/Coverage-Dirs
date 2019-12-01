@@ -26,4 +26,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
 
+    @IBAction func inputJSONSelected(_ sender: NSMenuItem) {
+        NotificationCenter.default.post(name: .inputJSONSelected,
+                                        object: nil)
+    }
+}
+
+extension NSNotification.Name {
+    static let inputJSONSelected = NSNotification.Name(rawValue: "inputJSONSelected")
 }
