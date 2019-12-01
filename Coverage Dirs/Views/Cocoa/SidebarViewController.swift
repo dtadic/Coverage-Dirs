@@ -49,7 +49,7 @@ extension SidebarViewController: NSTableViewDelegate, NSTableViewDataSource {
         let item = self.targets[row]
 
         return NSSidebarItemView(text: item.name,
-            image: NSImage(named: "archive") ?? NSImage())
+                                 image: Asset.archive.image)
     }
 
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {

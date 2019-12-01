@@ -1,0 +1,12 @@
+xcassets:
+  inputs:
+    - Coverage Dirs/Assets.xcassets
+  outputs:
+    - templateName: swift4
+      output: Coverage Dirs/Generated/assets-images.swift
+
+ib:
+  inputs: Coverage Dirs
+  outputs:
+    templateName: scenes-swift4
+    output: Coverage Dirs/Generated/storyboards.swift

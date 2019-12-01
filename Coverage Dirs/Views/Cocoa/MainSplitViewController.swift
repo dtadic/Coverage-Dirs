@@ -26,13 +26,6 @@ class MainSplitViewController: NSSplitViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let jsonURL = Bundle.main.url(forResource: "test", withExtension: "json")!
-        let jsonData = (try? Data(contentsOf: jsonURL))!
-        let jsonString = String(data: jsonData, encoding: .utf8)
-        let data = try? XCCovParser.parse(jsonString: jsonString!)
-
-        self.targets = data ?? []
-
         if let sidebarVC = self.children.first as? SidebarViewController {
             self.sidebarVC = sidebarVC
             sidebarVC.delegate = self
@@ -43,10 +36,31 @@ class MainSplitViewController: NSSplitViewController {
         }
     }
 
+    override func viewDidAppear() {
+        super.viewDidAppear()
+
+        let pasteVC = StoryboardScene.Views.jsonPaste.instantiate()
+
+        pasteVC.delegate = self
+
+        self.presentAsSheet(pasteVC)
+    }
+
+    private func parseJson(_ jsonString: String) {
+        let data = try? XCCovParser.parse(jsonString: jsonString)
+
+        self.targets = data ?? []
+    }
 }
 
 extension MainSplitViewController: SidebarViewControllerDelegate {
     func sidebarDidSelect(target: CoverageTarget) {
         self.coverageVC?.rootDirectory = target.rootDirectory
+    }
+}
+
+extension MainSplitViewController: JsonPasteViewControllerDelegate {
+    func jsonPasted(_ json: String) {
+        self.parseJson(json)
     }
 }

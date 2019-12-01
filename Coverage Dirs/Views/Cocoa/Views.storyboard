@@ -8,7 +8,7 @@
         <!--Window Controller-->
         <scene sceneID="113-Rl-ry0">
             <objects>
-                <windowController showSeguePresentationStyle="single" id="s28-xM-REW" sceneMemberID="viewController">
+                <windowController showSeguePresentationStyle="single" id="s28-xM-REW" customClass="MainWindowController" customModule="Coverage_Dirs" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titleVisibility="hidden" id="7Eu-bh-Cof">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -51,6 +51,96 @@
             </objects>
             <point key="canvasLocation" x="741" y="191"/>
         </scene>
+        <!--Json Paste View Controller-->
+        <scene sceneID="PPQ-Ix-znI">
+            <objects>
+                <viewController storyboardIdentifier="json_paste" id="Ipy-Hd-44Q" customClass="JsonPasteViewController" customModule="Coverage_Dirs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="rio-v8-vzC">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="213"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="akt-cT-IXi">
+                                <rect key="frame" x="20" y="37" width="410" height="143"/>
+                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="rkC-sz-83l">
+                                    <rect key="frame" x="0.0" y="0.0" width="410" height="143"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="bar" smartInsertDelete="YES" id="M01-EO-gsK">
+                                            <rect key="frame" x="0.0" y="0.0" width="410" height="143"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <size key="minSize" width="410" height="143"/>
+                                            <size key="maxSize" width="450" height="10000000"/>
+                                            <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="LM5-ql-807">
+                                    <rect key="frame" x="-100" y="-100" width="240" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="U8W-k0-ynQ">
+                                    <rect key="frame" x="394" y="0.0" width="16" height="143"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="y31-Fx-BYh">
+                                <rect key="frame" x="377" y="1" width="59" height="32"/>
+                                <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="D17-Fn-PPn">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="okClicked:" target="Ipy-Hd-44Q" id="zbw-2d-juY"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="isB-r7-l6O">
+                                <rect key="frame" x="295" y="1" width="82" height="32"/>
+                                <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6fr-LB-MZ2">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="cancelClicked:" target="Ipy-Hd-44Q" id="mcy-r9-Ks5"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cfR-yg-bJR">
+                                <rect key="frame" x="20" y="188" width="92" height="19"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="JSON Input" id="F5R-71-NA5">
+                                    <font key="font" size="16" name="HelveticaNeue-Bold"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="y31-Fx-BYh" secondAttribute="trailing" constant="20" id="4pd-lk-d03"/>
+                            <constraint firstAttribute="trailing" secondItem="akt-cT-IXi" secondAttribute="trailing" constant="20" id="EBi-Kt-uSe"/>
+                            <constraint firstItem="akt-cT-IXi" firstAttribute="top" secondItem="cfR-yg-bJR" secondAttribute="bottom" constant="8" id="Qsk-cj-wCd"/>
+                            <constraint firstItem="y31-Fx-BYh" firstAttribute="top" secondItem="akt-cT-IXi" secondAttribute="bottom" constant="8" id="Y0Y-dX-NHy"/>
+                            <constraint firstAttribute="bottom" secondItem="y31-Fx-BYh" secondAttribute="bottom" constant="8" id="cTo-w6-hEj"/>
+                            <constraint firstItem="akt-cT-IXi" firstAttribute="leading" secondItem="rio-v8-vzC" secondAttribute="leading" constant="20" id="hQG-CJ-Vrp"/>
+                            <constraint firstItem="cfR-yg-bJR" firstAttribute="leading" secondItem="rio-v8-vzC" secondAttribute="leading" constant="22" id="ie2-Fu-zWs"/>
+                            <constraint firstAttribute="bottom" secondItem="isB-r7-l6O" secondAttribute="bottom" constant="8" id="jbQ-a5-yPG"/>
+                            <constraint firstItem="y31-Fx-BYh" firstAttribute="leading" secondItem="isB-r7-l6O" secondAttribute="trailing" constant="12" id="szE-ns-CiE"/>
+                            <constraint firstItem="cfR-yg-bJR" firstAttribute="top" secondItem="rio-v8-vzC" secondAttribute="top" constant="6" id="x37-xF-Imq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="jsonTextView" destination="M01-EO-gsK" id="vmL-V1-RYj"/>
+                    </connections>
+                </viewController>
+                <customObject id="gps-hB-x2S" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="721" y="552.5"/>
+        </scene>
         <!--Sidebar View Controller-->
         <scene sceneID="rTr-YW-SUl">
             <objects>
@@ -77,7 +167,7 @@
                                                     <tableColumns>
                                                         <tableColumn width="195" minWidth="40" maxWidth="1000" id="xmS-lZ-mig">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                                <font key="font" metaFont="message" size="11"/>
+                                                                <font key="font" metaFont="controlContent" size="11"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             </tableHeaderCell>
@@ -169,7 +259,7 @@
                                             <tableColumns>
                                                 <tableColumn identifier="filename" editable="NO" width="397" minWidth="40" maxWidth="1000" id="sqr-qN-ZUQ">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Filename">
-                                                        <font key="font" metaFont="message" size="11"/>
+                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -182,7 +272,7 @@
                                                 </tableColumn>
                                                 <tableColumn identifier="coverage_percentage" editable="NO" width="69" minWidth="40" maxWidth="1000" id="lRj-8O-IG6">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Coverage %">
-                                                        <font key="font" metaFont="message" size="11"/>
+                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -214,7 +304,7 @@
                                                 </tableColumn>
                                                 <tableColumn identifier="coverage" width="64" minWidth="10" maxWidth="3.4028234663852886e+38" id="0bh-ea-hVK">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Coverage">
-                                                        <font key="font" metaFont="message" size="11"/>
+                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableHeaderCell>
