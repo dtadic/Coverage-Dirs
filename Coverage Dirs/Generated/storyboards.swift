@@ -18,9 +18,9 @@ internal enum StoryboardScene {
   internal enum Views: StoryboardType {
     internal static let storyboardName = "Views"
 
-    internal static let initialScene = InitialSceneType<MainWindowController>(storyboard: Views.self)
+    internal static let initialScene = InitialSceneType<Coverage_Dirs.MainWindowController>(storyboard: Views.self)
 
-    internal static let jsonPaste = SceneType<JsonPasteViewController>(storyboard: Views.self, identifier: "json_paste")
+    internal static let jsonPaste = SceneType<Coverage_Dirs.JsonPasteViewController>(storyboard: Views.self, identifier: "json_paste")
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name
