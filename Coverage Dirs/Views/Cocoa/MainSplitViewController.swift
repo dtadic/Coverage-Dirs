@@ -55,10 +55,10 @@ class MainSplitViewController: NSSplitViewController {
         self.presentAsSheet(pasteVC)
     }
 
-    private func parseJson(_ jsonString: String) {
-        let data = try? XCCovParser.parse(jsonString: jsonString)
+    private func parseJson(_ jsonString: String) throws {
+        let data = try XCCovParser.parse(jsonString: jsonString)
 
-        self.targets = data ?? []
+        self.targets = data
     }
 }
 
@@ -70,6 +70,11 @@ extension MainSplitViewController: SidebarViewControllerDelegate {
 
 extension MainSplitViewController: JsonPasteViewControllerDelegate {
     func jsonPasted(_ json: String) {
-        self.parseJson(json)
+        do {
+            try self.parseJson(json)
+        } catch let error {
+            NSLog("ERROR: %@", String(describing: error))
+            self.presentError(error)
+        }
     }
 }

@@ -3,7 +3,7 @@ import Foundation
 struct XCCovOutput: Codable {
     var coveredLines: Int
     var lineCoverage: Double
-    var errors: [XCCovError]
+    var errors: [XCCovError]?
     var targets: [XCCovTarget]
     var executableLines: Int
 
