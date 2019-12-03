@@ -86,6 +86,7 @@ extension CoverageViewController: NSOutlineViewDataSource, NSOutlineViewDelegate
                 textView.isEditable = false
 
                 textView.stringValue = item.name
+                textView.cell?.truncatesLastVisibleLine = true
                 return textView
             } else if tableColumn!.identifier.rawValue == "coverage_percentage" {
                 return makeCoveragePercentageView(coverage: item.coverage)
@@ -101,6 +102,7 @@ extension CoverageViewController: NSOutlineViewDataSource, NSOutlineViewDelegate
                 textView.isEditable = false
 
                 textView.stringValue = item.name
+                textView.cell?.truncatesLastVisibleLine = true
                 return textView
             } else if tableColumn!.identifier.rawValue == "coverage_percentage" {
                 return makeCoveragePercentageView(coverage: item.coverage)
