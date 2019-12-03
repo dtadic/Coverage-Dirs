@@ -13,7 +13,6 @@ class JsonPasteViewController: NSViewController {
     @IBOutlet var jsonTextView: NSTextView!
     weak var delegate: JsonPasteViewControllerDelegate?
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.

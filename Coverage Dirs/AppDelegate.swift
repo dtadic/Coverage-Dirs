@@ -15,11 +15,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var window: NSWindow!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        
-        let windowController = NSStoryboard(name: "Views", bundle: nil)
-            .instantiateInitialController() as? NSWindowController
+        let windowController =  StoryboardScene.Views.initialScene.instantiate()
 
-        windowController?.showWindow(self)
+        windowController.showWindow(self)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
