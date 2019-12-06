@@ -79,14 +79,8 @@ extension CoverageViewController: NSOutlineViewDataSource, NSOutlineViewDelegate
 
         if let item = item as? CoverageDirectory {
             if tableColumn!.identifier.rawValue == "filename" {
-                let textView = NSTextField()
-
-                textView.drawsBackground = false
-                textView.isBezeled = false
-                textView.isEditable = false
-
-                textView.stringValue = item.name
-                textView.cell?.truncatesLastVisibleLine = true
+                let textView = FilenameCellView()
+                textView.filename = item.name
                 return textView
             } else if tableColumn!.identifier.rawValue == "coverage_percentage" {
                 return makeCoveragePercentageView(coverage: item.coverage)
@@ -95,14 +89,8 @@ extension CoverageViewController: NSOutlineViewDataSource, NSOutlineViewDelegate
             }
         } else if let item = item as? CoverageFile {
             if tableColumn!.identifier.rawValue == "filename" {
-                let textView = NSTextField()
-
-                textView.drawsBackground = false
-                textView.isBezeled = false
-                textView.isEditable = false
-
-                textView.stringValue = item.name
-                textView.cell?.truncatesLastVisibleLine = true
+                let textView = FilenameCellView()
+                textView.filename = item.name
                 return textView
             } else if tableColumn!.identifier.rawValue == "coverage_percentage" {
                 return makeCoveragePercentageView(coverage: item.coverage)
@@ -112,6 +100,10 @@ extension CoverageViewController: NSOutlineViewDataSource, NSOutlineViewDelegate
         }
 
         return nil
+    }
+
+    func outlineView(_ outlineView: NSOutlineView, heightOfRowByItem item: Any) -> CGFloat {
+        return 20
     }
 
     private func makeCoveragePercentageView(coverage: CoverageData) -> NSView {
