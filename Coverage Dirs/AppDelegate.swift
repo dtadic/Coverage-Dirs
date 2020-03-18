@@ -28,8 +28,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NotificationCenter.default.post(name: .inputJSONSelected,
                                         object: nil)
     }
+
+    @IBAction func openDocument(_ sender: AnyObject) {
+        NotificationCenter.default.post(name: .openDocument,
+                                        object: nil)
+    }
+    
 }
 
 extension NSNotification.Name {
     static let inputJSONSelected = NSNotification.Name(rawValue: "inputJSONSelected")
+    static let openDocument = NSNotification.Name(rawValue: "openDocument")
 }

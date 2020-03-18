@@ -11,8 +11,7 @@
                 <windowController showSeguePresentationStyle="single" id="s28-xM-REW" customClass="MainWindowController" customModule="Coverage_Dirs" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titleVisibility="hidden" id="7Eu-bh-Cof">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="0.0" y="0.0" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
                         <value key="minSize" type="size" width="480" height="270"/>
                         <connections>
@@ -168,7 +167,7 @@ Gw
                                                     <tableColumns>
                                                         <tableColumn width="195" minWidth="40" maxWidth="1000" id="xmS-lZ-mig">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                                <font key="font" metaFont="controlContent" size="11"/>
+                                                                <font key="font" metaFont="message" size="11"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             </tableHeaderCell>
@@ -260,7 +259,7 @@ Gw
                                             <tableColumns>
                                                 <tableColumn identifier="filename" editable="NO" width="397" minWidth="40" maxWidth="1000" id="sqr-qN-ZUQ">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Filename">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -273,7 +272,7 @@ Gw
                                                 </tableColumn>
                                                 <tableColumn identifier="coverage_percentage" editable="NO" width="69" minWidth="40" maxWidth="1000" id="lRj-8O-IG6">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Coverage %">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -305,7 +304,7 @@ Gw
                                                 </tableColumn>
                                                 <tableColumn identifier="coverage" width="64" minWidth="10" maxWidth="3.4028234663852886e+38" id="0bh-ea-hVK">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Coverage">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableHeaderCell>
@@ -323,7 +322,7 @@ Gw
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W0z-1G-5z3">
                                                                     <rect key="frame" x="0.0" y="0.0" width="64" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="KUI-bL-16p">
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" id="KUI-bL-16p">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -351,6 +350,9 @@ Gw
                                 <tableHeaderView key="headerView" id="gk3-e1-ODv">
                                     <rect key="frame" x="0.0" y="0.0" width="539" height="25"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <connections>
+                                        <outlet property="menu" destination="XZM-Lm-fIr" id="W4N-Sj-wmg"/>
+                                    </connections>
                                 </tableHeaderView>
                             </scrollView>
                         </subviews>
@@ -366,8 +368,21 @@ Gw
                     </connections>
                 </viewController>
                 <customObject id="7Na-lw-Tai" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <menu title="Show columns" id="XZM-Lm-fIr" userLabel="Show columns">
+                    <items>
+                        <menuItem title="Filename" state="on" id="7Ct-ey-jTX" userLabel="Filename">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="Coverage %" state="on" id="mVG-pt-XJH">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="Graphical coverage" state="on" id="QFf-ei-bnb">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                    </items>
+                </menu>
             </objects>
-            <point key="canvasLocation" x="1456.5" y="377"/>
+            <point key="canvasLocation" x="1463" y="542"/>
         </scene>
     </scenes>
 </document>

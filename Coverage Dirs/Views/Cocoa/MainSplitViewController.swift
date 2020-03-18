@@ -39,12 +39,17 @@ class MainSplitViewController: NSSplitViewController {
                                                selector: #selector(showInputJS),
                                                name: .inputJSONSelected,
                                                object: nil)
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(showOpenFile),
+                                               name: .openDocument,
+                                               object: nil)
     }
 
     override func viewDidAppear() {
         super.viewDidAppear()
 
-        self.showInputJS()
+        self.showOpenFile()
     }
 
     @objc private func showInputJS() {
@@ -53,6 +58,56 @@ class MainSplitViewController: NSSplitViewController {
         pasteVC.delegate = self
 
         self.presentAsSheet(pasteVC)
+    }
+
+    @objc private func showOpenFile() {
+        let openPanel = NSOpenPanel()
+        openPanel.allowsMultipleSelection = false
+        openPanel.canChooseDirectories = false
+        openPanel.canCreateDirectories = false
+        openPanel.canChooseFiles = true
+        openPanel.allowedFileTypes = ["xcresult"]
+        guard let window = self.view.window else {
+            return
+        }
+
+        openPanel.beginSheetModal(for: window) { (response) in
+            if response == .OK {
+                let path = openPanel.url?.path
+
+                do {
+                    dump(FileManager.default.isReadableFile(atPath: path!))
+                    try print(FileManager.default.contentsOfDirectory(atPath: path!))
+                    let task = Process()
+                    task.executableURL = URL(fileURLWithPath: "/usr/bin/env")
+                    task.arguments = [
+                        "xcrun",
+                        "xccov",
+                        "view",
+                        "--report",
+                        "--json",
+                        path!
+                    ]
+                    let outputPipe = Pipe()
+                    let errorPipe = Pipe()
+
+                    task.standardOutput = outputPipe
+                    task.standardError = errorPipe
+
+                    try task.run()
+
+                    let outputData = outputPipe.fileHandleForReading.readDataToEndOfFile()
+                    let errorData = errorPipe.fileHandleForReading.readDataToEndOfFile()
+
+                    let output = String(decoding: outputData, as: UTF8.self)
+                    let error = String(decoding: errorData, as: UTF8.self)
+
+                    self.jsonPasted(output)
+                } catch let error {
+                    self.presentError(error)
+                }
+            }
+        }
     }
 
     private func parseJson(_ jsonString: String) throws {
