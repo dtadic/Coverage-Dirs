@@ -12,6 +12,8 @@ class MainWindowController: NSWindowController {
 
     override func windowDidLoad() {
         super.windowDidLoad()
+
+        self.window?.registerForDraggedTypes([.fileURL])
     }
 
 }

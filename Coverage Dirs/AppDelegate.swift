@@ -33,7 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NotificationCenter.default.post(name: .openDocument,
                                         object: nil)
     }
-    
+
 }
 
 extension NSNotification.Name {

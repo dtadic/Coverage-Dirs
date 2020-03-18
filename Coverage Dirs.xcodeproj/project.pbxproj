@@ -37,6 +37,7 @@
 		6FC82E2F2393D92000816435 /* storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC82E2E2393D92000816435 /* storyboards.swift */; };
 		6FC82E32239AC7E000816435 /* FilenameCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC82E31239AC7E000816435 /* FilenameCellView.swift */; };
 		6FC82E38239AC9AB00816435 /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 6FC82E37239AC9AB00816435 /* TinyConstraints */; };
+		6FFEC4992422D50100F0CE00 /* DragView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FFEC4982422D50100F0CE00 /* DragView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		6FC82E2C2393D83D00816435 /* assets-images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "assets-images.swift"; sourceTree = "<group>"; };
 		6FC82E2E2393D92000816435 /* storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = storyboards.swift; sourceTree = "<group>"; };
 		6FC82E31239AC7E000816435 /* FilenameCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilenameCellView.swift; sourceTree = "<group>"; };
+		6FFEC4982422D50100F0CE00 /* DragView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +256,7 @@
 				6FC82E292393D66200816435 /* JsonPasteViewController.swift */,
 				6FC82E31239AC7E000816435 /* FilenameCellView.swift */,
 				6FC82E22238F15C600816435 /* Views.storyboard */,
+				6FFEC4982422D50100F0CE00 /* DragView.swift */,
 			);
 			path = Cocoa;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				6F1676182381D45E00DCC8E6 /* XCCovFile.swift in Sources */,
 				6F1676162381D45E00DCC8E6 /* XCCovError.swift in Sources */,
 				6F5C5EB6238198A800C68DEA /* AppDelegate.swift in Sources */,
+				6FFEC4992422D50100F0CE00 /* DragView.swift in Sources */,
 				6F16760D2381C57C00DCC8E6 /* CoverageData.swift in Sources */,
 				6F1676202381E32F00DCC8E6 /* CoverageDirectory.swift in Sources */,
 				6F52097C238940D6001D9FC5 /* CoverageTargetView.swift in Sources */,
@@ -636,7 +640,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Coverage Dirs/Preview Content\"";
 				DEVELOPMENT_TEAM = R4FJ597FC6;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -647,7 +651,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.dusantadic.Coverage-Dirs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -663,7 +667,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Coverage Dirs/Preview Content\"";
 				DEVELOPMENT_TEAM = R4FJ597FC6;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -674,7 +678,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.dusantadic.Coverage-Dirs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

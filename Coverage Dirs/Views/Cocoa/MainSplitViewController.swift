@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import os
 
 class MainSplitViewController: NSSplitViewController {
 
@@ -73,39 +74,48 @@ class MainSplitViewController: NSSplitViewController {
 
         openPanel.beginSheetModal(for: window) { (response) in
             if response == .OK {
-                let path = openPanel.url?.path
-
-                do {
-                    dump(FileManager.default.isReadableFile(atPath: path!))
-                    try print(FileManager.default.contentsOfDirectory(atPath: path!))
-                    let task = Process()
-                    task.executableURL = URL(fileURLWithPath: "/usr/bin/env")
-                    task.arguments = [
-                        "xcrun",
-                        "xccov",
-                        "view",
-                        "--report",
-                        "--json",
-                        path!
-                    ]
-                    let outputPipe = Pipe()
-                    let errorPipe = Pipe()
-
-                    task.standardOutput = outputPipe
-                    task.standardError = errorPipe
-
-                    try task.run()
-
-                    let outputData = outputPipe.fileHandleForReading.readDataToEndOfFile()
-                    let errorData = errorPipe.fileHandleForReading.readDataToEndOfFile()
-
-                    let output = String(decoding: outputData, as: UTF8.self)
-                    let error = String(decoding: errorData, as: UTF8.self)
-
-                    self.jsonPasted(output)
-                } catch let error {
-                    self.presentError(error)
+                guard let path = openPanel.url?.path else {
+                    return
                 }
+                DispatchQueue.global(qos: .userInitiated).async {
+                    self.readfrom(path: path)
+                }
+            }
+        }
+    }
+
+    private func readfrom(path: String) {
+        do {
+            let task = Process()
+            task.executableURL = URL(fileURLWithPath: "/usr/bin/env")
+            task.arguments = [
+                "xcrun",
+                "xccov",
+                "view",
+                "--report",
+                "--json",
+                path
+            ]
+            let outputPipe = Pipe()
+            let errorPipe = Pipe()
+
+            task.standardOutput = outputPipe
+            task.standardError = errorPipe
+
+            try task.run()
+
+            let outputData = outputPipe.fileHandleForReading.readDataToEndOfFile()
+            let errorData = errorPipe.fileHandleForReading.readDataToEndOfFile()
+
+            let output = String(decoding: outputData, as: UTF8.self)
+            let error = String(decoding: errorData, as: UTF8.self)
+
+            os_log(.error, "Error from xccov: %@", error)
+
+            self.jsonPasted(output)
+        } catch let error {
+            DispatchQueue.main.async {
+                self.presentError(error)
             }
         }
     }
@@ -113,7 +123,9 @@ class MainSplitViewController: NSSplitViewController {
     private func parseJson(_ jsonString: String) throws {
         let data = try XCCovParser.parse(jsonString: jsonString)
 
-        self.targets = data
+        DispatchQueue.main.async {
+            self.targets = data
+        }
     }
 }
 
@@ -129,7 +141,22 @@ extension MainSplitViewController: JsonPasteViewControllerDelegate {
             try self.parseJson(json)
         } catch let error {
             NSLog("ERROR: %@", String(describing: error))
-            self.presentError(error)
+            DispatchQueue.main.async {
+                self.presentError(error)
+            }
         }
     }
+}
+
+extension MainSplitViewController: DragViewDelegate {
+    func dragViewDidReceive(fileURLs: [URL]) {
+        guard let path = fileURLs.first?.path else {
+            return
+        }
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.readfrom(path: path)
+        }
+    }
+
+
 }
