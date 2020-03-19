@@ -34,6 +34,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                                         object: nil)
     }
 
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return true
+    }
+
 }
 
 extension NSNotification.Name {
