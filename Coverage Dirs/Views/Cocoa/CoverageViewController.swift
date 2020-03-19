@@ -11,7 +11,8 @@ import SwiftUI
 
 class CoverageViewController: NSViewController {
     @IBOutlet weak var outlineView: NSOutlineView!
-
+    @IBOutlet weak var progressIndicator: NSProgressIndicator!
+    
     var rootDirectory: CoverageDirectory? {
         didSet {
             self.outlineView.reloadData()
@@ -23,6 +24,14 @@ class CoverageViewController: NSViewController {
 
         self.outlineView.dataSource = self
         self.outlineView.delegate = self
+    }
+
+    func showLoading() {
+        self.progressIndicator.startAnimation(self)
+    }
+
+    func hideLoading() {
+        self.progressIndicator.stopAnimation(self)
     }
 
 }

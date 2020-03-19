@@ -53,6 +53,11 @@ class MainSplitViewController: NSSplitViewController {
         self.showOpenFile()
     }
 
+    func clearData() {
+        self.targets = []
+        self.coverageVC?.rootDirectory = nil
+    }
+
     @objc private func showInputJS() {
         let pasteVC = StoryboardScene.Views.jsonPaste.instantiate()
 
@@ -77,8 +82,14 @@ class MainSplitViewController: NSSplitViewController {
                 guard let path = openPanel.url?.path else {
                     return
                 }
+                self.coverageVC?.showLoading()
+                self.clearData()
+
                 DispatchQueue.global(qos: .userInitiated).async {
                     self.readfrom(path: path)
+                    DispatchQueue.main.async {
+                        self.coverageVC?.hideLoading()
+                    }
                 }
             }
         }
@@ -112,7 +123,14 @@ class MainSplitViewController: NSSplitViewController {
 
             os_log(.error, "Error from xccov: %@", error)
 
-            self.jsonPasted(output)
+            do {
+                try self.parseJson(output)
+            } catch let error {
+                NSLog("ERROR: %@", String(describing: error))
+                DispatchQueue.main.async {
+                    self.presentError(error)
+                }
+            }
         } catch let error {
             DispatchQueue.main.async {
                 self.presentError(error)
@@ -121,6 +139,10 @@ class MainSplitViewController: NSSplitViewController {
     }
 
     private func parseJson(_ jsonString: String) throws {
+        DispatchQueue.main.sync {
+            self.clearData()
+        }
+
         let data = try XCCovParser.parse(jsonString: jsonString)
 
         DispatchQueue.main.async {
@@ -157,6 +179,5 @@ extension MainSplitViewController: DragViewDelegate {
             self.readfrom(path: path)
         }
     }
-
 
 }

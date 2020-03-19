@@ -146,7 +146,7 @@ Gw
                 </viewController>
                 <customObject id="gps-hB-x2S" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="721" y="552.5"/>
+            <point key="canvasLocation" x="633" y="633"/>
         </scene>
         <!--Sidebar View Controller-->
         <scene sceneID="rTr-YW-SUl">
@@ -365,8 +365,13 @@ Gw
                                     </connections>
                                 </tableHeaderView>
                             </scrollView>
+                            <progressIndicator wantsLayer="YES" maxValue="100" displayedWhenStopped="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="3Iu-oX-fza">
+                                <rect key="frame" x="142" y="142" width="16" height="16"/>
+                            </progressIndicator>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="3Iu-oX-fza" firstAttribute="centerY" secondItem="907-Ap-cBK" secondAttribute="centerY" id="4tW-ms-IMZ"/>
+                            <constraint firstItem="3Iu-oX-fza" firstAttribute="centerX" secondItem="907-Ap-cBK" secondAttribute="centerX" id="Lnv-gr-ANc"/>
                             <constraint firstAttribute="bottom" secondItem="l8r-Ak-F5s" secondAttribute="bottom" id="Xll-hP-Dqp"/>
                             <constraint firstItem="l8r-Ak-F5s" firstAttribute="top" secondItem="907-Ap-cBK" secondAttribute="top" id="Yl5-jo-BUB"/>
                             <constraint firstItem="l8r-Ak-F5s" firstAttribute="leading" secondItem="907-Ap-cBK" secondAttribute="leading" id="rwP-pb-lML"/>
@@ -375,6 +380,7 @@ Gw
                     </view>
                     <connections>
                         <outlet property="outlineView" destination="UYO-HH-6iI" id="LbU-z1-syS"/>
+                        <outlet property="progressIndicator" destination="3Iu-oX-fza" id="n5f-6t-mvh"/>
                     </connections>
                 </viewController>
                 <customObject id="7Na-lw-Tai" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
