@@ -18,10 +18,18 @@ To this:
 
 ## Usage
 
+Find xcresults file from Report navigator in Xcode:
+  
+![finding coverage](./Media/find_coverage.png)
+
+You can then drag and drop, or use open dialog to read the file.
+
+## Getting JSON using terminal
+
 Run
 ``` bash
 xcrun xccov view --report --json <.xcresult file> | pbcopy
 ```
 to copy coverage json. Paste the output to Coverage Dirs (it will already be in clipboard because of `pbcopy`)
 
-
+You can open JSON input in Coverage Dirs in: `File > Input JSON` (&#x2318; + I )
