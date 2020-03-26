@@ -56,6 +56,7 @@ class MainSplitViewController: NSSplitViewController {
     func clearData() {
         self.targets = []
         self.coverageVC?.rootDirectory = nil
+        self.coverageVC?.outlineView.reloadData()
     }
 
     @objc private func showInputJS() {
@@ -154,6 +155,7 @@ class MainSplitViewController: NSSplitViewController {
 extension MainSplitViewController: SidebarViewControllerDelegate {
     func sidebarDidSelect(target: CoverageTarget) {
         self.coverageVC?.rootDirectory = target.rootDirectory
+        self.coverageVC?.outlineView.reloadData()
     }
 }
 

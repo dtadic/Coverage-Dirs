@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="s28-xM-REW">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="s28-xM-REW">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -174,7 +174,6 @@ Gw
                                                     <tableColumns>
                                                         <tableColumn width="195" minWidth="40" maxWidth="1000" id="xmS-lZ-mig">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                                <font key="font" metaFont="message" size="11"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             </tableHeaderCell>
@@ -248,25 +247,24 @@ Gw
             <objects>
                 <viewController id="AlR-Ny-xyb" customClass="CoverageViewController" customModule="Coverage_Dirs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="907-Ap-cBK">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8r-Ak-F5s">
-                                <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                <rect key="frame" x="0.0" y="0.0" width="350" height="300"/>
                                 <clipView key="contentView" id="nLB-Q1-FtZ">
-                                    <rect key="frame" x="1" y="0.0" width="298" height="299"/>
+                                    <rect key="frame" x="1" y="0.0" width="348" height="299"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="gk3-e1-ODv" viewBased="YES" indentationPerLevel="16" outlineTableColumn="sqr-qN-ZUQ" id="UYO-HH-6iI">
-                                            <rect key="frame" x="0.0" y="0.0" width="298" height="274"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="353" height="274"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="filename" editable="NO" width="156" minWidth="40" maxWidth="1000" id="sqr-qN-ZUQ">
+                                                <tableColumn identifier="filename" editable="NO" width="194" minWidth="40" maxWidth="1000" id="sqr-qN-ZUQ">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Filename">
-                                                        <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -275,11 +273,11 @@ Gw
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
+                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="filename"/>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                 </tableColumn>
-                                                <tableColumn identifier="coverage_percentage" editable="NO" width="69" minWidth="40" maxWidth="1000" id="lRj-8O-IG6">
+                                                <tableColumn identifier="coverage_percentage" editable="NO" width="80" minWidth="40" maxWidth="1000" id="lRj-8O-IG6">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Coverage %">
-                                                        <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -288,13 +286,14 @@ Gw
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
+                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="coverage"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="ESp-iL-kol">
-                                                            <rect key="frame" x="160" y="1" width="69" height="17"/>
+                                                            <rect key="frame" x="198" y="1" width="80" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AhM-Yr-3Em">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="69" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="0" id="edt-Ff-3dQ">
                                                                         <font key="font" metaFont="system"/>
@@ -309,9 +308,8 @@ Gw
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="coverage" width="64" minWidth="10" maxWidth="3.4028234663852886e+38" id="0bh-ea-hVK">
+                                                <tableColumn identifier="coverage" width="70" minWidth="10" maxWidth="3.4028234663852886e+38" id="0bh-ea-hVK">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Coverage">
-                                                        <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </tableHeaderCell>
@@ -320,14 +318,15 @@ Gw
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
+                                                    <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="coverage"/>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="2D6-MQ-APD">
-                                                            <rect key="frame" x="232" y="1" width="64" height="17"/>
+                                                            <rect key="frame" x="281" y="1" width="70" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W0z-1G-5z3">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="64" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="70" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" id="KUI-bL-16p">
                                                                         <font key="font" metaFont="system"/>
@@ -349,8 +348,8 @@ Gw
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="CKx-WZ-L9C"/>
                                 </constraints>
-                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="67R-h9-cC3">
-                                    <rect key="frame" x="1" y="283" width="298" height="16"/>
+                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="67R-h9-cC3">
+                                    <rect key="frame" x="1" y="283" width="348" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="bNT-RA-N2V">
@@ -358,7 +357,7 @@ Gw
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="gk3-e1-ODv">
-                                    <rect key="frame" x="0.0" y="0.0" width="298" height="25"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="353" height="25"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <connections>
                                         <outlet property="menu" destination="XZM-Lm-fIr" id="W4N-Sj-wmg"/>
@@ -366,7 +365,7 @@ Gw
                                 </tableHeaderView>
                             </scrollView>
                             <progressIndicator wantsLayer="YES" maxValue="100" displayedWhenStopped="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="3Iu-oX-fza">
-                                <rect key="frame" x="142" y="142" width="16" height="16"/>
+                                <rect key="frame" x="167" y="142" width="16" height="16"/>
                             </progressIndicator>
                         </subviews>
                         <constraints>
@@ -398,7 +397,7 @@ Gw
                     </items>
                 </menu>
             </objects>
-            <point key="canvasLocation" x="1361" y="542"/>
+            <point key="canvasLocation" x="1386" y="542"/>
         </scene>
     </scenes>
 </document>

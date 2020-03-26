@@ -12,7 +12,7 @@ import SwiftUI
 class CoverageViewController: NSViewController {
     @IBOutlet weak var outlineView: NSOutlineView!
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
-    
+
     var rootDirectory: CoverageDirectory? {
         didSet {
             self.outlineView.reloadData()
@@ -32,6 +32,49 @@ class CoverageViewController: NSViewController {
 
     func hideLoading() {
         self.progressIndicator.stopAnimation(self)
+    }
+
+    func makeSorted(directory: CoverageDirectory) -> CoverageDirectory {
+        guard let sort = self.outlineView.sortDescriptors.first else {
+            return directory
+        }
+
+        var dir = directory
+
+        if sort.key == "coverage" {
+            dir.files.sort(by: {
+                if sort.ascending {
+                    return $0.coverage.coverage < $1.coverage.coverage
+                }
+                return $0.coverage.coverage > $1.coverage.coverage
+            })
+
+            dir.children.sort(by: {
+                if sort.ascending {
+                    return $0.coverage.coverage < $1.coverage.coverage
+                }
+                return $0.coverage.coverage > $1.coverage.coverage
+            })
+        } else {
+            dir.files.sort(by: {
+                if sort.ascending {
+                    return $0.name < $1.name
+                }
+                return $0.name > $1.name
+            })
+            dir.children.sort(by: {
+                if sort.ascending {
+                    return $0.name < $1.name
+                }
+                return $0.name > $1.name
+            })
+        }
+
+        for (index, child) in dir.children.enumerated() {
+            dir.children[index] = makeSorted(directory: child)
+        }
+
+        return dir
     }
 
 }
@@ -57,6 +100,33 @@ extension CoverageViewController: NSOutlineViewDataSource, NSOutlineViewDelegate
         subItems.append(contentsOf: item.files)
 
         return subItems[index]
+    }
+
+    func outlineView(_ outlineView: NSOutlineView,
+                     sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor]) {
+        if let root = self.rootDirectory {
+            var expanded = [UUID]()
+
+            root.recurse { dir -> Void in
+                if self.outlineView.isItemExpanded(dir) {
+                    expanded.append(dir.id)
+                }
+            }
+
+            self.rootDirectory = makeSorted(directory: root)
+
+            var expandedCount = 0
+            self.rootDirectory?.recurse { dir -> Bool in
+                if expanded.contains(dir.id) {
+                    self.outlineView.expandItem(dir)
+                    expandedCount += 1
+                }
+                if expandedCount >= expanded.count {
+                    return false
+                }
+                return true
+            }
+        }
     }
 
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
@@ -111,7 +181,8 @@ extension CoverageViewController: NSOutlineViewDataSource, NSOutlineViewDelegate
         return nil
     }
 
-    func outlineView(_ outlineView: NSOutlineView, heightOfRowByItem item: Any) -> CGFloat {
+    func outlineView(_ outlineView: NSOutlineView,
+                     heightOfRowByItem item: Any) -> CGFloat {
         return 20
     }
 

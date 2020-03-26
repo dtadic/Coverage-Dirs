@@ -30,6 +30,7 @@ class FilenameCellView: NSView {
         iconView.centerYToSuperview()
         iconView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         iconView.setCompressionResistance(.defaultHigh, for: .horizontal)
+        iconView.size(CGSize(width: 16, height: 16))
 
         textView.trailing(to: self)
         textView.centerYToSuperview()
