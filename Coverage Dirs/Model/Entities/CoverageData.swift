@@ -9,12 +9,28 @@
 import Foundation
 
 struct CoverageData: Equatable, Hashable {
-    var executableLines: Int
-    var coveredLines: Int
-    var coverage: Double {
-        if executableLines == 0 {
-            return 0
+    var executableLines: Int {
+        didSet {
+            calculateCoverage()
         }
-        return Double(coveredLines) / Double(executableLines)
+    }
+    var coveredLines: Int {
+        didSet {
+            calculateCoverage()
+        }
+    }
+    var coverage: Double = 0
+
+    init(executableLines: Int, coveredLines: Int) {
+        self.executableLines = executableLines
+        self.coveredLines = coveredLines
+        self.calculateCoverage()
+    }
+
+    private mutating func calculateCoverage() {
+        if executableLines == 0 {
+            coverage = 0
+        }
+        coverage =  Double(coveredLines) / Double(executableLines)
     }
 }

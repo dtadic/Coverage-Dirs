@@ -20,6 +20,7 @@
 		6F1676202381E32F00DCC8E6 /* CoverageDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F16761F2381E32F00DCC8E6 /* CoverageDirectory.swift */; };
 		6F167627238468C900DCC8E6 /* SidebarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F167626238468C900DCC8E6 /* SidebarItemView.swift */; };
 		6F16762B2384755300DCC8E6 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 6F16762A2384755300DCC8E6 /* test.json */; };
+		6F48730F244BB58D00B82438 /* CoverageCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F48730E244BB58D00B82438 /* CoverageCellView.swift */; };
 		6F52097C238940D6001D9FC5 /* CoverageTargetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52097B238940D6001D9FC5 /* CoverageTargetView.swift */; };
 		6F5C5EB6238198A800C68DEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5C5EB5238198A800C68DEA /* AppDelegate.swift */; };
 		6F5C5EBA238198AA00C68DEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F5C5EB9238198AA00C68DEA /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 		6F16761F2381E32F00DCC8E6 /* CoverageDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverageDirectory.swift; sourceTree = "<group>"; };
 		6F167626238468C900DCC8E6 /* SidebarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarItemView.swift; sourceTree = "<group>"; };
 		6F16762A2384755300DCC8E6 /* test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
+		6F48730E244BB58D00B82438 /* CoverageCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverageCellView.swift; sourceTree = "<group>"; };
 		6F52097B238940D6001D9FC5 /* CoverageTargetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverageTargetView.swift; sourceTree = "<group>"; };
 		6F5C5EB2238198A800C68DEA /* Coverage Dirs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coverage Dirs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F5C5EB5238198A800C68DEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				6FC82E31239AC7E000816435 /* FilenameCellView.swift */,
 				6FC82E22238F15C600816435 /* Views.storyboard */,
 				6FFEC4982422D50100F0CE00 /* DragView.swift */,
+				6F48730E244BB58D00B82438 /* CoverageCellView.swift */,
 			);
 			path = Cocoa;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F48730F244BB58D00B82438 /* CoverageCellView.swift in Sources */,
 				6FC82E2D2393D83D00816435 /* assets-images.swift in Sources */,
 				6FC82E32239AC7E000816435 /* FilenameCellView.swift in Sources */,
 				6FC82E2F2393D92000816435 /* storyboards.swift in Sources */,

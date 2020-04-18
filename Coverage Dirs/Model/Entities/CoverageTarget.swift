@@ -8,11 +8,12 @@
 
 import Foundation
 
-struct CoverageTarget: Identifiable, Equatable, Hashable {
-    var id: String {
-        return name
-    }
-
+class CoverageTarget {
     var rootDirectory: CoverageDirectory
     var name: String
+
+    init(rootDirectory: CoverageDirectory, name: String) {
+        self.rootDirectory = rootDirectory
+        self.name = name
+    }
 }

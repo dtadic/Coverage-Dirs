@@ -33,50 +33,6 @@ class CoverageViewController: NSViewController {
     func hideLoading() {
         self.progressIndicator.stopAnimation(self)
     }
-
-    func makeSorted(directory: CoverageDirectory) -> CoverageDirectory {
-        guard let sort = self.outlineView.sortDescriptors.first else {
-            return directory
-        }
-
-        var dir = directory
-
-        if sort.key == "coverage" {
-            dir.files.sort(by: {
-                if sort.ascending {
-                    return $0.coverage.coverage < $1.coverage.coverage
-                }
-                return $0.coverage.coverage > $1.coverage.coverage
-            })
-
-            dir.children.sort(by: {
-                if sort.ascending {
-                    return $0.coverage.coverage < $1.coverage.coverage
-                }
-                return $0.coverage.coverage > $1.coverage.coverage
-            })
-        } else {
-            dir.files.sort(by: {
-                if sort.ascending {
-                    return $0.name < $1.name
-                }
-                return $0.name > $1.name
-            })
-            dir.children.sort(by: {
-                if sort.ascending {
-                    return $0.name < $1.name
-                }
-                return $0.name > $1.name
-            })
-        }
-
-        for (index, child) in dir.children.enumerated() {
-            dir.children[index] = makeSorted(directory: child)
-        }
-
-        return dir
-    }
-
 }
 
 extension CoverageViewController: NSOutlineViewDataSource, NSOutlineViewDelegate {
@@ -104,29 +60,13 @@ extension CoverageViewController: NSOutlineViewDataSource, NSOutlineViewDelegate
 
     func outlineView(_ outlineView: NSOutlineView,
                      sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor]) {
-        if let root = self.rootDirectory {
-            var expanded = [UUID]()
-
-            root.recurse { dir -> Void in
-                if self.outlineView.isItemExpanded(dir) {
-                    expanded.append(dir.id)
-                }
-            }
-
-            self.rootDirectory = makeSorted(directory: root)
-
-            var expandedCount = 0
-            self.rootDirectory?.recurse { dir -> Bool in
-                if expanded.contains(dir.id) {
-                    self.outlineView.expandItem(dir)
-                    expandedCount += 1
-                }
-                if expandedCount >= expanded.count {
-                    return false
-                }
-                return true
-            }
+        guard let sort = self.outlineView.sortDescriptors.first,
+            let key = sort.key else {
+            return
         }
+
+        self.rootDirectory?.sort(by: key, ascending: sort.ascending)
+        self.outlineView.reloadData()
     }
 
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
@@ -158,23 +98,37 @@ extension CoverageViewController: NSOutlineViewDataSource, NSOutlineViewDelegate
 
         if let item = item as? CoverageDirectory {
             if tableColumn!.identifier.rawValue == "filename" {
-                let textView = FilenameCellView()
-                textView.filename = item.name
+                let textView = outlineView.makeView(withIdentifier: tableColumn!.identifier,
+                                                    owner: nil) as? FilenameCellView
+                textView?.filename = item.name
                 return textView
             } else if tableColumn!.identifier.rawValue == "coverage_percentage" {
-                return makeCoveragePercentageView(coverage: item.coverage)
+                let textView = outlineView.makeView(withIdentifier: tableColumn!.identifier,
+                owner: nil) as? NSTableCellView
+                textView?.textField?.stringValue = "\(Int(item.coverage.coverage * 100))%"
+                return textView
             } else if tableColumn?.identifier.rawValue == "coverage" {
-                return makeCoverageView(coverage: item.coverage)
+                let covView = outlineView.makeView(withIdentifier: tableColumn!.identifier,
+                                                   owner: nil) as? CoverageCellView
+                covView?.coverage = item.coverage.coverage
+                return covView
             }
         } else if let item = item as? CoverageFile {
             if tableColumn!.identifier.rawValue == "filename" {
-                let textView = FilenameCellView()
-                textView.filename = item.name
+                let textView = outlineView.makeView(withIdentifier: tableColumn!.identifier,
+                                                    owner: nil) as? FilenameCellView
+                textView?.filename = item.name
                 return textView
             } else if tableColumn!.identifier.rawValue == "coverage_percentage" {
-                return makeCoveragePercentageView(coverage: item.coverage)
+                let textView = outlineView.makeView(withIdentifier: tableColumn!.identifier,
+                owner: nil) as? NSTableCellView
+                textView?.textField?.stringValue = "\(Int(item.coverage.coverage * 100))%"
+                return textView
             } else if tableColumn?.identifier.rawValue == "coverage" {
-                return makeCoverageView(coverage: item.coverage)
+                let covView = outlineView.makeView(withIdentifier: tableColumn!.identifier,
+                                                   owner: nil) as? CoverageCellView
+                covView?.coverage = item.coverage.coverage
+                return covView
             }
         }
 
@@ -184,51 +138,6 @@ extension CoverageViewController: NSOutlineViewDataSource, NSOutlineViewDelegate
     func outlineView(_ outlineView: NSOutlineView,
                      heightOfRowByItem item: Any) -> CGFloat {
         return 20
-    }
-
-    private func makeCoveragePercentageView(coverage: CoverageData) -> NSView {
-        let textView = NSTextField()
-
-        textView.drawsBackground = false
-        textView.isBezeled = false
-        textView.isEditable = false
-
-        textView.alignment = .right
-
-        textView.stringValue = "\(Int(coverage.coverage * 100))%"
-        return textView
-    }
-
-    private func makeCoverageView(coverage: CoverageData) -> NSView {
-        let view = PercentageView(percentage: coverage.coverage)
-        let hostingView = NSHostingView(rootView: view)
-
-        let holderView = NSView()
-        holderView.addSubview(hostingView)
-
-        hostingView.translatesAutoresizingMaskIntoConstraints = false
-
-        hostingView
-            .heightAnchor
-            .constraint(equalToConstant: 5)
-            .isActive = true
-
-        hostingView
-            .leadingAnchor
-            .constraint(equalTo: holderView.leadingAnchor)
-            .isActive = true
-
-        hostingView
-            .trailingAnchor
-            .constraint(equalTo: holderView.trailingAnchor)
-            .isActive = true
-
-        hostingView
-            .centerYAnchor
-            .constraint(equalTo: holderView.centerYAnchor)
-            .isActive = true
-
-        return holderView
     }
 
 }

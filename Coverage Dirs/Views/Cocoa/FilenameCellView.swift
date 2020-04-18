@@ -9,10 +9,9 @@
 import Cocoa
 import TinyConstraints
 
-class FilenameCellView: NSView {
+private let fileTypeIconCache = NSCache<NSString, NSImage>()
 
-    private let iconView = NSImageView()
-    private let textView = NSTextField()
+class FilenameCellView: NSTableCellView {
 
     var filename: String? {
         didSet {
@@ -20,43 +19,11 @@ class FilenameCellView: NSView {
         }
     }
 
-    override init(frame frameRect: NSRect) {
-        super.init(frame: frameRect)
-
-        self.addSubview(iconView)
-        self.addSubview(textView)
-
-        iconView.leading(to: self, offset: 5)
-        iconView.centerYToSuperview()
-        iconView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-        iconView.setCompressionResistance(.defaultHigh, for: .horizontal)
-        iconView.size(CGSize(width: 16, height: 16))
-
-        textView.trailing(to: self)
-        textView.centerYToSuperview()
-        textView.topToSuperview(relation: .equalOrGreater)
-        textView.bottomToSuperview(relation: .equalOrLess)
-        textView.leadingToTrailing(of: iconView, offset: 5)
-
-        self.setData()
-    }
-
-    convenience init() {
-        self.init(frame: .zero)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     private func setData() {
-        self.iconView.image = self.getIcon()
-        textView.drawsBackground = false
-        textView.isBezeled = false
-        textView.isEditable = false
+        self.imageView?.image = self.getIcon()
 
-        textView.stringValue = self.filename ?? ""
-        textView.cell?.truncatesLastVisibleLine = true
+        textField?.stringValue = self.filename ?? ""
+        textField?.cell?.truncatesLastVisibleLine = true
     }
 
     private func getIcon() -> NSImage? {
@@ -66,8 +33,12 @@ class FilenameCellView: NSView {
 
         if filename.contains("."),
             let type = filename.split(separator: ".").last {
+            if let icon = fileTypeIconCache.object(forKey: type as NSString) {
+                return icon
+            }
             let icon = NSWorkspace.shared.icon(forFileType: String(type))
             icon.size = NSSize(width: 16, height: 16)
+            fileTypeIconCache.setObject(icon, forKey: type as NSString)
             return icon
         } else {
             let icon = NSImage(named: NSImage.folderName)

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct PercentageView: View {
-    var percentage: Double
+    @Binding var percentage: Double
 
     var body: some View {
         GeometryReader { metrics in
@@ -33,7 +33,7 @@ struct PercentageView: View {
 
 struct PercentageView_Previews: PreviewProvider {
     static var previews: some View {
-        PercentageView(percentage: 0.11)
+        PercentageView(percentage: .constant(0.11))
             .previewLayout(.fixed(width: 300, height: 15))
 
     }
